@@ -1,0 +1,24 @@
+
+
+Task : 1 (join multiple tables using left join)
+List all Countries and customers related to these countries.
+==>SELECT country.country_name,customer.customer_name FROM country LEFT JOIN city  on country.country_id=city.city_id  left JOIN customer on city.city_id=customer.customer_id ;
+
+
+For each country displaying its name in English, the name of the city customer is located in as 
+well as the name of the customer. 
+==>SELECT country.country_name,city.city_name,customer.customer_name FROM country LEFT JOIN city  on country.country_id=city.city_id  left JOIN customer on city.city_id=customer.customer_id ;
+
+Return even countries without related cities and customers.
+SELECT country.country_name FROM country LEFT JOIN city  on country.country_id=city.city_id  left JOIN customer on city.city_id=customer.customer_id ;
+
+
+Task : 2 (join multiple tables using both left and inner join)
+
+Return the list of all countries that have pairs(exclude countries which are not referenced by any 
+city). For such pairs return all customers.
+==>SELECT country.country_name,city.city_name,customer.customer_name FROM city LEFT JOIN country  on city.city_id=country.country_id  INNER JOIN customer on city.city_id=customer.customer_id ;
+
+
+Return even pairs of not having a single customer
+==>SELECT country.country_name,city.city_name,customer.customer_name FROM country LEFT JOIN city ON country.country_id=city.city_id left JOIN customer ON city.city_id=customer.customer_id;
